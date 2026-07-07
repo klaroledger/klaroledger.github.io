@@ -17,6 +17,11 @@
       content="A private, offline-first money tracker for Android. No account, no ads, no tracking."
     />
     <meta property="og:site_name" content="Klaro Ledger" />
+    <meta property="og:image" content="https://klaroledger.github.io/assets/og.png" />
+    <meta property="og:url" content="https://klaroledger.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="assets/icon.png" />
+    <link rel="apple-touch-icon" href="assets/icon.png" />
     <style>
       :root {
         --brand: #6d28d9;
@@ -129,21 +134,56 @@
       /* Phone / rings art */
       .art { display: flex; justify-content: center; }
       .phone {
-        width: 250px;
-        aspect-ratio: 9 / 19;
+        width: 244px;
         border-radius: 34px;
         background: linear-gradient(160deg, var(--brand), var(--brand-deep));
-        padding: 14px;
+        padding: 12px;
         box-shadow: 0 30px 60px -20px rgba(76, 29, 149, 0.5);
       }
       .phone .screen {
         width: 100%;
-        height: 100%;
-        border-radius: 22px;
+        border-radius: 24px;
+        overflow: hidden;
         background: var(--bg);
+        display: block;
+      }
+      .phone .screen img { width: 100%; display: block; }
+
+      /* App icon in the top bar */
+      .appicon {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        display: block;
+      }
+
+      /* Screenshot gallery */
+      .shots {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 4px 4px 14px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .shots figure {
+        margin: 0;
+        flex: 0 0 auto;
+        width: 210px;
+        scroll-snap-align: center;
+        text-align: center;
+      }
+      .shots img {
+        width: 100%;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 40px -22px rgba(76, 29, 149, 0.45);
+        display: block;
+      }
+      .shots figcaption {
+        color: var(--muted);
+        font-size: 13.5px;
+        margin-top: 12px;
       }
 
       /* Sections */
@@ -254,6 +294,7 @@
     <!-- Top bar -->
     <div class="topbar">
       <div class="container">
+        <img class="appicon" src="assets/icon.png" alt="Klaro Ledger app icon" />
         <span class="brandmark"><span class="k">Klaro</span> Ledger</span>
         <span class="tag">by Klaro Pte. Ltd.</span>
         <span class="spacer"></span>
@@ -278,26 +319,10 @@
           </div>
           <div class="cta-note">Coming soon to Google Play. Free to use.</div>
         </div>
-        <div class="art" aria-hidden="true">
+        <div class="art">
           <div class="phone">
             <div class="screen">
-              <!-- Three-ring motif — Klaro's signature -->
-              <svg viewBox="0 0 120 120" width="150" height="150" role="img" aria-label="Klaro rings">
-                <g fill="none" stroke-width="9" stroke-linecap="round">
-                  <circle cx="60" cy="60" r="48" stroke="#ece9f6" />
-                  <circle cx="60" cy="60" r="48" stroke="#6d28d9"
-                    stroke-dasharray="301" stroke-dashoffset="90"
-                    transform="rotate(-90 60 60)" />
-                  <circle cx="60" cy="60" r="34" stroke="#efeaf9" />
-                  <circle cx="60" cy="60" r="34" stroke="#8b5cf6"
-                    stroke-dasharray="214" stroke-dashoffset="120"
-                    transform="rotate(-90 60 60)" />
-                  <circle cx="60" cy="60" r="20" stroke="#f3eefb" />
-                  <circle cx="60" cy="60" r="20" stroke="#10b981"
-                    stroke-dasharray="126" stroke-dashoffset="40"
-                    transform="rotate(-90 60 60)" />
-                </g>
-              </svg>
+              <img src="assets/shot-1.jpg" alt="Klaro Ledger home screen — spending chart and progress rings" />
             </div>
           </div>
         </div>
@@ -342,6 +367,30 @@
             <h3>Yours to keep</h3>
             <p>Scan receipts, import CSVs, add home-screen widgets, and export your data anytime.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screens" style="padding-top: 0">
+      <div class="container">
+        <div class="shots">
+          <figure>
+            <img src="assets/shot-1.jpg" alt="Home screen with spending chart and budget rings" />
+            <figcaption>Your month at a glance</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shot-2.jpg" alt="Savings goals with progress bars" />
+            <figcaption>Goals that fill as you save</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shot-3.jpg" alt="Stats: spent, earned, saved with category breakdown" />
+            <figcaption>See where it actually went</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/shot-4.jpg" alt="Pace chart and spending calendar heatmap" />
+            <figcaption>Pace &amp; calendar heatmap</figcaption>
+          </figure>
         </div>
       </div>
     </section>
