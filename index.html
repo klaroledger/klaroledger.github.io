@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Klaro Ledger — a private, offline-first money tracker</title>
+    <meta
+      name="description"
+      content="Klaro Ledger is a private, offline-first money tracker for Android. Budgets, goals, net worth, and shared spaces — with no account, no ads, and no tracking. By Klaro Pte. Ltd."
+    />
+    <meta name="theme-color" content="#6d28d9" />
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Klaro Ledger — your money, on your device" />
+    <meta
+      property="og:description"
+      content="A private, offline-first money tracker for Android. No account, no ads, no tracking."
+    />
+    <meta property="og:site_name" content="Klaro Ledger" />
+    <style>
+      :root {
+        --brand: #6d28d9;
+        --brand-deep: #4c1d95;
+        --brand-soft: #8b5cf6;
+        --bg: #ffffff;
+        --fg: #1f2430;
+        --muted: #5b6472;
+        --card: #faf9ff;
+        --border: #ece9f6;
+        --accent: #10b981;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0f1115;
+          --fg: #e8e9ee;
+          --muted: #a0a6b2;
+          --card: #161922;
+          --border: #262b37;
+          --brand-soft: #a78bfa;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+      }
+      a { color: var(--brand-soft); }
+      .container { max-width: 940px; margin: 0 auto; padding: 0 20px; }
+
+      /* Top bar */
+      .topbar {
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(8px);
+        z-index: 5;
+      }
+      .topbar .container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      .brandmark { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; }
+      .brandmark .k { color: var(--brand); }
+      .topbar .tag { color: var(--muted); font-size: 13px; }
+      .topbar .spacer { margin-left: auto; }
+      .btn {
+        display: inline-block;
+        background: var(--brand);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 0;
+        cursor: pointer;
+      }
+      .btn:hover { background: var(--brand-deep); }
+      .btn.ghost {
+        background: transparent;
+        color: var(--fg);
+        border: 1px solid var(--border);
+      }
+      .btn.ghost:hover { border-color: var(--brand-soft); }
+
+      /* Hero */
+      .hero {
+        background:
+          radial-gradient(1200px 500px at 80% -10%, rgba(139, 92, 246, 0.18), transparent 60%),
+          linear-gradient(180deg, var(--card), var(--bg));
+        border-bottom: 1px solid var(--border);
+        padding: 64px 0 56px;
+      }
+      .hero .grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--brand);
+        background: color-mix(in srgb, var(--brand) 12%, transparent);
+        border: 1px solid color-mix(in srgb, var(--brand) 26%, transparent);
+        padding: 5px 12px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: 44px;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        margin: 0 0 16px;
+      }
+      .hero p.sub { font-size: 18px; color: var(--muted); margin: 0 0 26px; max-width: 30em; }
+      .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+      .cta-note { color: var(--muted); font-size: 13px; margin-top: 14px; }
+
+      /* Phone / rings art */
+      .art { display: flex; justify-content: center; }
+      .phone {
+        width: 250px;
+        aspect-ratio: 9 / 19;
+        border-radius: 34px;
+        background: linear-gradient(160deg, var(--brand), var(--brand-deep));
+        padding: 14px;
+        box-shadow: 0 30px 60px -20px rgba(76, 29, 149, 0.5);
+      }
+      .phone .screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 22px;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Sections */
+      section { padding: 62px 0; }
+      .section-head { text-align: center; max-width: 34em; margin: 0 auto 40px; }
+      .section-head h2 {
+        font-size: 30px;
+        letter-spacing: -0.02em;
+        margin: 0 0 10px;
+      }
+      .section-head p { color: var(--muted); margin: 0; font-size: 17px; }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .feature {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px;
+      }
+      .feature .ico { font-size: 22px; }
+      .feature h3 { font-size: 16px; margin: 12px 0 6px; letter-spacing: -0.01em; }
+      .feature p { color: var(--muted); font-size: 14.5px; margin: 0; }
+
+      /* Privacy band */
+      .privacy {
+        background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+        color: #fff;
+      }
+      .privacy .section-head h2 { color: #fff; }
+      .privacy .section-head p { color: rgba(255, 255, 255, 0.8); }
+      .privacy .points {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .privacy .point {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .privacy .point h3 { margin: 0 0 6px; font-size: 16px; }
+      .privacy .point p { margin: 0; color: rgba(255, 255, 255, 0.82); font-size: 14.5px; }
+
+      /* Waitlist */
+      .waitlist { text-align: center; }
+      .waitlist .btn { font-size: 16px; padding: 13px 26px; }
+
+      footer {
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13.5px;
+        padding: 34px 0 60px;
+      }
+      footer .row { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+      footer a { color: var(--muted); text-decoration: none; }
+      footer a:hover { color: var(--brand-soft); }
+      footer .spacer { margin-left: auto; }
+
+      @media (max-width: 760px) {
+        .hero { padding: 44px 0 40px; }
+        .hero .grid { grid-template-columns: 1fr; gap: 32px; }
+        .art { order: -1; }
+        h1 { font-size: 34px; }
+        .features, .privacy .points { grid-template-columns: 1fr; }
+        .topbar .tag { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="container">
+        <span class="brandmark"><span class="k">Klaro</span> Ledger</span>
+        <span class="tag">by Klaro Pte. Ltd.</span>
+        <span class="spacer"></span>
+        <a class="btn ghost" href="#waitlist">Get early access</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container grid">
+        <div>
+          <span class="pill">Private by design · Android</span>
+          <h1>Your money, on your device. Nowhere else.</h1>
+          <p class="sub">
+            Klaro Ledger is a calm, offline-first money tracker — budgets, goals,
+            net worth, and shared spaces for couples and households — with no
+            account, no ads, and no tracking.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="#waitlist">Join the waitlist</a>
+            <a class="btn ghost" href="#features">See what it does</a>
+          </div>
+          <div class="cta-note">Coming soon to Google Play. Free to use.</div>
+        </div>
+        <div class="art" aria-hidden="true">
+          <div class="phone">
+            <div class="screen">
+              <!-- Three-ring motif — Klaro's signature -->
+              <svg viewBox="0 0 120 120" width="150" height="150" role="img" aria-label="Klaro rings">
+                <g fill="none" stroke-width="9" stroke-linecap="round">
+                  <circle cx="60" cy="60" r="48" stroke="#ece9f6" />
+                  <circle cx="60" cy="60" r="48" stroke="#6d28d9"
+                    stroke-dasharray="301" stroke-dashoffset="90"
+                    transform="rotate(-90 60 60)" />
+                  <circle cx="60" cy="60" r="34" stroke="#efeaf9" />
+                  <circle cx="60" cy="60" r="34" stroke="#8b5cf6"
+                    stroke-dasharray="214" stroke-dashoffset="120"
+                    transform="rotate(-90 60 60)" />
+                  <circle cx="60" cy="60" r="20" stroke="#f3eefb" />
+                  <circle cx="60" cy="60" r="20" stroke="#10b981"
+                    stroke-dasharray="126" stroke-dashoffset="40"
+                    transform="rotate(-90 60 60)" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Everything to run your money — nothing to give away</h2>
+          <p>Fast manual entry, clear visuals, and the numbers that actually matter.</p>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <div class="ico">🎯</div>
+            <h3>Budgets &amp; goals</h3>
+            <p>Set monthly budgets and savings goals, and watch your rings fill as you go.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">📈</div>
+            <h3>Net worth &amp; investments</h3>
+            <p>Track accounts, cards, and holdings — with live prices and your net worth over time.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">👥</div>
+            <h3>Shared spaces</h3>
+            <p>Track finances jointly with a partner or household. End-to-end encrypted — we can't read them.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🔁</div>
+            <h3>Recurring &amp; bills</h3>
+            <p>Automate rent, subscriptions, and salary, and see bill trends month to month.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🌏</div>
+            <h3>Multi-currency</h3>
+            <p>Log in any currency with historical FX, so travel and overseas spending just work.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">📥</div>
+            <h3>Yours to keep</h3>
+            <p>Scan receipts, import CSVs, add home-screen widgets, and export your data anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy band -->
+    <section class="privacy">
+      <div class="container">
+        <div class="section-head">
+          <h2>Private by design, not by promise</h2>
+          <p>Most finance apps are a front end for your data. Klaro isn't.</p>
+        </div>
+        <div class="points">
+          <div class="point">
+            <h3>Stays on your device</h3>
+            <p>Your ledger lives in an encrypted database on your phone. We never receive a copy.</p>
+          </div>
+          <div class="point">
+            <h3>No account, no tracking</h3>
+            <p>No sign-up to start, no ads, and no analytics or tracking SDKs — ever.</p>
+          </div>
+          <div class="point">
+            <h3>Backups you control</h3>
+            <p>Optional backup goes to your own private Google Drive folder — only you can open it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section id="waitlist" class="waitlist">
+      <div class="container">
+        <div class="section-head">
+          <h2>Be first to try it</h2>
+          <p>
+            Klaro Ledger is in the final stretch before launch. Join the waitlist
+            and we'll email you the moment it's on Google Play.
+          </p>
+        </div>
+        <a
+          class="btn"
+          href="mailto:klaroledger@gmail.com?subject=Klaro%20Ledger%20waitlist&body=Add%20me%20to%20the%20waitlist%20please!"
+          >Join the waitlist</a
+        >
+        <div class="cta-note">Or email us at klaroledger@gmail.com</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container row">
+        <span>&copy; 2026 Klaro Pte. Ltd.</span>
+        <a href="https://klaroledger.github.io/klaro-legal/privacy.html">Privacy</a>
+        <a href="https://klaroledger.github.io/klaro-legal/terms.html">Terms</a>
+        <a href="https://klaroledger.github.io/klaro-legal/delete-account.html">Delete data</a>
+        <span class="spacer"></span>
+        <a href="mailto:klaroledger@gmail.com">klaroledger@gmail.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
