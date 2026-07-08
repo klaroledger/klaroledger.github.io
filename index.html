@@ -165,17 +165,15 @@
       /* Screenshot gallery */
       .shots {
         display: flex;
-        gap: 18px;
-        overflow-x: auto;
-        padding: 4px 4px 14px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 22px 24px;
+        padding: 4px;
       }
       .shots figure {
         margin: 0;
         flex: 0 0 auto;
         width: 210px;
-        scroll-snap-align: center;
         text-align: center;
       }
       .shots img {
@@ -212,7 +210,12 @@
         border-radius: 16px;
         padding: 22px;
       }
-      .feature .ico { font-size: 22px; }
+      .feature .ico { line-height: 0; }
+      .feature .ico svg {
+        width: 26px;
+        height: 26px;
+        color: var(--brand-soft);
+      }
       .feature h3 { font-size: 16px; margin: 12px 0 6px; letter-spacing: -0.01em; }
       .feature p { color: var(--muted); font-size: 14.5px; margin: 0; }
 
@@ -345,32 +348,44 @@
         </div>
         <div class="features">
           <div class="feature">
-            <div class="ico">🎯</div>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
             <h3>Budgets &amp; goals</h3>
             <p>Set monthly budgets and savings goals, and watch your rings fill as you go.</p>
           </div>
           <div class="feature">
-            <div class="ico">📈</div>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+            </div>
             <h3>Net worth &amp; investments</h3>
             <p>Track accounts, cards, and holdings — with live prices and your net worth over time.</p>
           </div>
           <div class="feature">
-            <div class="ico">👥</div>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
             <h3>Shared spaces</h3>
             <p>Track finances jointly with a partner or household. End-to-end encrypted — we can't read them.</p>
           </div>
           <div class="feature">
-            <div class="ico">🔁</div>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+            </div>
             <h3>Recurring &amp; bills</h3>
             <p>Automate rent, subscriptions, and salary, and see bill trends month to month.</p>
           </div>
           <div class="feature">
-            <div class="ico">🌏</div>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
             <h3>Multi-currency</h3>
             <p>Log in any currency with historical FX, so travel and overseas spending just work.</p>
           </div>
           <div class="feature">
-            <div class="ico">📥</div>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+            </div>
             <h3>Yours to keep</h3>
             <p>Scan receipts, import CSVs, add home-screen widgets, and export your data anytime.</p>
           </div>
