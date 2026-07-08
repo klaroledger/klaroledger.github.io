@@ -164,16 +164,13 @@
 
       /* Screenshot gallery */
       .shots {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 22px 24px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px 20px;
         padding: 4px;
       }
       .shots figure {
         margin: 0;
-        flex: 0 0 auto;
-        width: 210px;
         text-align: center;
       }
       .shots img {
@@ -294,6 +291,7 @@
         .art { order: -1; }
         h1 { font-size: 34px; }
         .features, .privacy .points { grid-template-columns: 1fr; }
+        .shots { grid-template-columns: repeat(2, 1fr); }
         .topbar .tag { display: none; }
       }
     </style>
