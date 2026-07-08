@@ -74,6 +74,16 @@
       }
       .brandmark { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; }
       .brandmark .k { color: var(--brand); }
+      /* Wordmark logo ("Klaro" with the ring-o) + aligned "Ledger" text. */
+      .brand { display: flex; align-items: center; gap: 3px; text-decoration: none; }
+      .wordlogo { height: 30px; display: block; }
+      .ledger {
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+        color: var(--fg);
+        line-height: 1;
+      }
       .topbar .tag { color: var(--muted); font-size: 13px; }
       .topbar .spacer { margin-left: auto; }
       .btn {
@@ -294,8 +304,10 @@
     <!-- Top bar -->
     <div class="topbar">
       <div class="container">
-        <img class="appicon" src="assets/icon.png" alt="Klaro Ledger app icon" />
-        <span class="brandmark"><span class="k">Klaro</span> Ledger</span>
+        <span class="brand">
+          <img class="wordlogo" src="assets/klaro-wordmark.png" alt="Klaro" />
+          <span class="ledger">Ledger</span>
+        </span>
         <span class="tag">by Klaro Pte. Ltd.</span>
         <span class="spacer"></span>
         <a class="btn ghost" href="#waitlist">Get early access</a>
