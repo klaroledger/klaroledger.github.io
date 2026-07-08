@@ -75,15 +75,17 @@
       .brandmark { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; }
       .brandmark .k { color: var(--brand); }
       /* Wordmark logo ("Klaro" with the ring-o) + aligned "Ledger" text. */
-      .brand { display: flex; align-items: center; gap: 3px; text-decoration: none; }
-      .wordlogo { height: 28px; display: block; }
+      /* Baseline-align the tight (padding-free) logo with "Ledger": an <img>'s
+         baseline is its bottom edge, and the logo is cropped so its bottom ~=
+         the "Klar" baseline — so both words share a true baseline, no nudge. */
+      .brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
+      .wordlogo { height: 19px; display: block; }
       .ledger {
         font-weight: 700;
         font-size: 25px;
         letter-spacing: -0.02em;
         color: var(--fg);
         line-height: 1;
-        transform: translateY(-3px); /* sit on the logo's baseline */
       }
       .topbar .tag { color: var(--muted); font-size: 13px; }
       .topbar .spacer { margin-left: auto; }
