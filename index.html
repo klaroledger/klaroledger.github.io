@@ -146,21 +146,13 @@
 
       /* Phone / rings art */
       .art { display: flex; justify-content: center; }
-      .phone {
-        width: 244px;
-        border-radius: 34px;
-        background: linear-gradient(160deg, var(--brand), var(--brand-deep));
-        padding: 12px;
-        box-shadow: 0 30px 60px -20px rgba(76, 29, 149, 0.5);
-      }
-      .phone .screen {
-        width: 100%;
-        border-radius: 24px;
-        overflow: hidden;
-        background: var(--bg);
+      .hero-mock {
+        width: 268px;
+        max-width: 80vw;
+        height: auto;
         display: block;
+        filter: drop-shadow(0 26px 50px rgba(76, 29, 149, 0.45));
       }
-      .phone .screen img { width: 100%; display: block; }
 
       /* App icon in the top bar */
       .appicon {
@@ -335,11 +327,11 @@
           <div class="cta-note">Coming soon to Google Play. Free to use.</div>
         </div>
         <div class="art">
-          <div class="phone">
-            <div class="screen">
-              <img src="assets/shot-1.jpg" alt="Klaro Ledger home screen — spending chart and progress rings" />
-            </div>
-          </div>
+          <img
+            class="hero-mock"
+            src="assets/hero-mock.png"
+            alt="Klaro Ledger — spending pace chart and calendar heatmap"
+          />
         </div>
       </div>
     </header>
