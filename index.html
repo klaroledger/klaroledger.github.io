@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Klaro Ledger — a private, offline-first money tracker</title>
+    <title>Klaro Ledger</title>
     <meta
       name="description"
       content="Klaro Ledger is a private, offline-first money tracker for Android. Budgets, goals, net worth, and shared spaces — with no account, no ads, and no tracking. By Klaro Pte. Ltd."
@@ -67,11 +67,15 @@
       }
       .topbar .container {
         display: flex;
-        align-items: center;
+        /* Baseline so "by Klaro Pte. Ltd." sits on the bottom of the big
+           wordmark; the button is re-centered below so it doesn't drop. */
+        align-items: baseline;
         gap: 12px;
         padding-top: 14px;
         padding-bottom: 14px;
       }
+      .topbar .spacer,
+      .topbar .btn { align-self: center; }
       .brandmark { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; }
       .brandmark .k { color: var(--brand); }
       /* Wordmark logo ("Klaro" with the ring-o) + aligned "Ledger" text. */
