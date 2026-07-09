@@ -280,6 +280,36 @@
       .privacy .point h3 { margin: 0 0 6px; font-size: 16px; }
       .privacy .point p { margin: 0; color: rgba(255, 255, 255, 0.82); font-size: 14.5px; }
 
+      /* FAQ (native <details> accordion: content stays in the DOM, crawlable) */
+      .faq-list { max-width: 46em; margin: 0 auto; display: grid; gap: 12px; }
+      .faq-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+      }
+      .faq-item > summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 18px 20px;
+        font-weight: 600;
+        font-size: 16.5px;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .faq-item > summary::-webkit-details-marker { display: none; }
+      .faq-item > summary::after {
+        content: "+";
+        color: var(--brand-soft);
+        font-size: 22px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+      .faq-item[open] > summary::after { transform: rotate(45deg); }
+      .faq-item > .faq-a { padding: 0 20px 18px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+
       /* Waitlist */
       .waitlist { text-align: center; }
       .waitlist .btn { font-size: 16px; padding: 13px 26px; }
@@ -483,6 +513,111 @@
         </div>
       </div>
     </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Questions, answered</h2>
+          <p>How a private, offline money tracker actually works.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Can I track my expenses without linking a bank account?</summary>
+            <p class="faq-a">
+              Yes. Klaro Ledger uses fast manual entry instead of bank connections — a
+              transaction takes a few seconds to add, and no banking login ever goes into
+              the app. Your credentials stay with your bank, and Klaro never needs
+              read-access to your accounts.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Does it work offline?</summary>
+            <p class="faq-a">
+              Yes — Klaro is offline-first. Adding transactions, budgets, goals, and every
+              chart run entirely on your phone, with no internet connection and no server
+              round-trip. It's just as fast on a plane or with no signal.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Where is my financial data stored?</summary>
+            <p class="faq-a">
+              On your device only, in an encrypted database — there's no account and no
+              cloud copy by default. If you turn on backup, it goes to your own private
+              Google Drive folder, encrypted so only you can open it.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>What's the difference between manual and automatic expense tracking?</summary>
+            <p class="faq-a">
+              Automatic apps link to your bank and import transactions for you. That's
+              convenient, but it means handing over your banking credentials and, usually,
+              your spending data to their servers. Manual tracking — how Klaro works — means
+              you log each expense yourself: a little more effort, but nothing about your
+              accounts is shared, and writing it down keeps you closer to where your money
+              actually goes.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Do free budgeting apps sell your data?</summary>
+            <p class="faq-a">
+              Some do — "free" is often paid for with ads or by selling anonymised spending
+              data to third parties. Klaro Ledger does neither: no ads, no trackers, and
+              nothing about your spending is sold or shared, because your ledger stays on
+              your device.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I track my expenses without linking a bank account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Klaro Ledger uses fast manual entry instead of bank connections — a transaction takes a few seconds to add, and no banking login ever goes into the app. Your credentials stay with your bank, and Klaro never needs read-access to your accounts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — Klaro is offline-first. Adding transactions, budgets, goals, and every chart run entirely on your phone, with no internet connection and no server round-trip. It's just as fast on a plane or with no signal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is my financial data stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On your device only, in an encrypted database — there's no account and no cloud copy by default. If you turn on backup, it goes to your own private Google Drive folder, encrypted so only you can open it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between manual and automatic expense tracking?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Automatic apps link to your bank and import transactions for you. That's convenient, but it means handing over your banking credentials and, usually, your spending data to their servers. Manual tracking — how Klaro works — means you log each expense yourself: a little more effort, but nothing about your accounts is shared, and writing it down keeps you closer to where your money actually goes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do free budgeting apps sell your data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some do — \"free\" is often paid for with ads or by selling anonymised spending data to third parties. Klaro Ledger does neither: no ads, no trackers, and nothing about your spending is sold or shared, because your ledger stays on your device."
+            }
+          }
+        ]
+      }
+    </script>
 
     <!-- Waitlist -->
     <section id="waitlist" class="waitlist">
