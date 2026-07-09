@@ -67,15 +67,14 @@
       }
       .topbar .container {
         display: flex;
-        /* Baseline so "by Klaro Pte. Ltd." sits on the bottom of the big
-           wordmark; the button is re-centered below so it doesn't drop. */
-        align-items: baseline;
+        align-items: center;
         gap: 12px;
         padding-top: 14px;
         padding-bottom: 14px;
       }
-      .topbar .spacer,
-      .topbar .btn { align-self: center; }
+      /* Brand + attribution share a baseline (tag on the wordmark's bottom),
+         and the wrapper stays vertically centered in the bar as one unit. */
+      .brandrow { display: flex; align-items: baseline; gap: 12px; }
       .brandmark { font-weight: 800; letter-spacing: -0.02em; font-size: 19px; }
       .brandmark .k { color: var(--brand); }
       /* Wordmark logo ("Klaro" with the ring-o) + aligned "Ledger" text. */
@@ -304,11 +303,13 @@
     <!-- Top bar -->
     <div class="topbar">
       <div class="container">
-        <span class="brand">
-          <img class="wordlogo" src="assets/klaro-wordmark.png" alt="Klaro" />
-          <span class="ledger">Ledger</span>
+        <span class="brandrow">
+          <span class="brand">
+            <img class="wordlogo" src="assets/klaro-wordmark.png" alt="Klaro" />
+            <span class="ledger">Ledger</span>
+          </span>
+          <span class="tag">by Klaro Pte. Ltd.</span>
         </span>
-        <span class="tag">by Klaro Pte. Ltd.</span>
         <span class="spacer"></span>
         <a class="btn ghost" href="#waitlist">Get early access</a>
       </div>
