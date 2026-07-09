@@ -27,6 +27,41 @@
     <meta name="twitter:image" content="https://klaroledger.github.io/assets/og.png?v=2" />
     <link rel="icon" type="image/png" href="assets/icon.png" />
     <link rel="apple-touch-icon" href="assets/icon.png" />
+    <link rel="canonical" href="https://klaroledger.github.io/" />
+    <!-- Structured data: helps Google understand the app + can win rich results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://klaroledger.github.io/#website",
+            "url": "https://klaroledger.github.io/",
+            "name": "Klaro Ledger",
+            "publisher": { "@id": "https://klaroledger.github.io/#org" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://klaroledger.github.io/#org",
+            "name": "Klaro Pte. Ltd.",
+            "url": "https://klaroledger.github.io/",
+            "logo": "https://klaroledger.github.io/assets/icon.png",
+            "email": "klaroledger@gmail.com"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Klaro Ledger",
+            "operatingSystem": "Android",
+            "applicationCategory": "FinanceApplication",
+            "description": "A private, offline-first money tracker for Android. Budgets, goals, net worth, and shared spaces — with no account, no ads, and no tracking.",
+            "url": "https://klaroledger.github.io/",
+            "image": "https://klaroledger.github.io/assets/og.png",
+            "publisher": { "@id": "https://klaroledger.github.io/#org" },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SGD" }
+          }
+        ]
+      }
+    </script>
     <style>
       :root {
         --brand: #6d28d9;
