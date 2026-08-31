@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Security — Klaro Ledger</title>
+    <meta
+      name="description"
+      content="How Klaro Ledger keeps your money private: personal data stays encrypted on your device, and Shared Spaces are end-to-end encrypted so even we can't read them."
+    />
+    <link rel="canonical" href="https://klaroledger.app/security.html" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="band">
+      <div class="band-inner">
+        <a class="mark" href="/" aria-label="Klaro Ledger — home">Klaro Ledger</a>
+        <span class="tag">by Klaro Pte. Ltd.</span>
+      </div>
+    </div>
+    <main class="wrap">
+      <h1>How your data stays private</h1>
+      <p class="updated">The short, plain-language version. For the full detail, see the
+        <a href="privacy.html">Privacy Policy</a>.</p>
+
+      <p class="lead">
+        Klaro is built so your money stays yours. Your personal finances never leave
+        your phone, and the one thing that does sync — Shared Spaces — is end-to-end
+        encrypted, so even we can't read it. Here's how that works.
+      </p>
+
+      <h2>Your ledger lives on your device</h2>
+      <p>
+        Everything in your Personal ledger is stored in an encrypted database on your
+        phone. There's no account to sign up for, no copy sitting on our servers, and
+        nothing for us to read, sell, or lose. If you never turn on a single optional
+        feature, your data simply never leaves your device.
+      </p>
+
+      <h2>Shared Spaces are end-to-end encrypted</h2>
+      <p>
+        When you share a household or couple's ledger, that data has to travel between
+        phones — so we encrypt it end to end. "End to end" means it's scrambled on your
+        device before it's sent and only unscrambled on the phones of the people you
+        share with. It passes through a small relay we run to shuttle it between you,
+        but the relay only ever sees scrambled data it holds no key to open. That's what
+        lets us say we can't read your shared money either.
+      </p>
+
+      <h2>How the encryption works, plainly</h2>
+      <p>A few specifics, without the jargon:</p>
+      <ul>
+        <li>
+          Each shared space gets its own random <strong>256-bit key</strong> — the kind
+          that isn't guessable in any practical amount of time.
+        </li>
+        <li>
+          That key is created on your device and held in your phone's hardware-backed
+          secure storage (the Android Keystore). We never receive it.
+        </li>
+        <li>
+          When you invite someone, the key travels <strong>inside the invite you hand
+          them directly</strong> — best of all by scanning a QR code in person. It never
+          passes through our servers.
+        </li>
+        <li>
+          Every change is encrypted with that key — using NaCl, a widely used and
+          well-studied encryption library, not something we invented — and authenticated,
+          so any tampering is detected and rejected.
+        </li>
+        <li>
+          Our relay stores only the encrypted result. It knows who is in a space and when
+          they last synced, but never what's inside.
+        </li>
+      </ul>
+
+      <h2>Treat your invite like a password</h2>
+      <p>
+        Because the space's key travels inside the invite, the invite is a secret. Share
+        it directly with the person joining — a QR scan in person is safest — rather than
+        posting it somewhere public or forwarding it through a channel you don't trust.
+        Anyone who sees the invite can read that space.
+      </p>
+
+      <h2>Backups stay in your Google Drive</h2>
+      <p>
+        If you turn on backup, an encrypted copy of your data goes to a private folder
+        inside your own Google Drive that only this app can open. We run no servers for
+        it and never receive a copy — the backup lives under your Google account, not
+        ours, and you can delete it whenever you like.
+      </p>
+
+      <h2>What we don't do</h2>
+      <p>
+        No ads. No trackers or analytics SDKs building a profile of you. No selling or
+        sharing your data with anyone. No account required to start. The business model
+        is a simple subscription — you pay for the app, so your data doesn't have to.
+      </p>
+    </main>
+    <footer>&copy; 2026 Klaro Pte. Ltd. All rights reserved.</footer>
+  </body>
+</html>
