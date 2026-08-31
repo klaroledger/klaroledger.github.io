@@ -153,6 +153,33 @@
       }
       .btn.ghost:hover { border-color: var(--brand-soft); }
 
+      /* Launch-state toggle. <body class="prelaunch"> shows the waitlist CTAs;
+         change it to class="launched" the day the app is live on Google Play
+         to reveal the download badge instead. Both variants stay in the DOM,
+         so they can never drift out of sync. */
+      .launched .prelaunch-only { display: none; }
+      .prelaunch .launch-only { display: none; }
+
+      /* Google Play download badge (placeholder art — the two-line label is
+         the recognisable part; for strict brand compliance, swap this anchor's
+         contents for Google's official badge PNG and keep the href). */
+      .play-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 12px;
+        padding: 9px 20px 9px 16px;
+      }
+      .play-badge:hover { background: #141414; }
+      .play-badge svg { width: 21px; height: 23px; display: block; }
+      .play-badge .pb-text { display: flex; flex-direction: column; text-align: left; line-height: 1.15; }
+      .play-badge .pb-text small { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.85; }
+      .play-badge .pb-text strong { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+
       /* Hero */
       .hero {
         background:
@@ -379,7 +406,20 @@
       }
     </style>
   </head>
-  <body>
+  <body class="prelaunch">
+    <!--
+      ┌─ LAUNCH-DAY SWAP ─────────────────────────────────────────────────┐
+      │ When Klaro Ledger is live on Google Play:                          │
+      │   1. Change <body class="prelaunch"> above to class="launched".    │
+      │      That's it — hero, top bar, and this section flip to the       │
+      │      "Get it on Google Play" download badge automatically.         │
+      │   2. (Optional, for brand compliance) drop Google's official badge │
+      │      PNG in and swap the .play-badge anchor contents for it.       │
+      │   3. The store URL is already wired to the real package            │
+      │      (com.klaro.ledger) — nothing to fill in.                      │
+      │   4. Email the waitlist that it's live.                            │
+      └───────────────────────────────────────────────────────────────────┘
+    -->
     <!-- Top bar -->
     <div class="topbar">
       <div class="container">
@@ -391,7 +431,8 @@
           <span class="tag">by Klaro Pte. Ltd.</span>
         </span>
         <span class="spacer"></span>
-        <a class="btn ghost" href="#waitlist">Get early access</a>
+        <a class="btn ghost prelaunch-only" href="#waitlist">Get early access</a>
+        <a class="btn launch-only" href="https://play.google.com/store/apps/details?id=com.klaro.ledger">Get it on Google Play</a>
       </div>
     </div>
 
@@ -407,10 +448,15 @@
             account, no ads, and no tracking.
           </p>
           <div class="cta-row">
-            <a class="btn" href="#waitlist">Join the waitlist</a>
+            <a class="btn prelaunch-only" href="#waitlist">Join the waitlist</a>
+            <a class="play-badge launch-only" href="https://play.google.com/store/apps/details?id=com.klaro.ledger" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 3.5v17a1 1 0 0 0 1.5.87l14-8.5a1 1 0 0 0 0-1.74l-14-8.5A1 1 0 0 0 4 3.5Z"/></svg>
+              <span class="pb-text"><small>Get it on</small><strong>Google Play</strong></span>
+            </a>
             <a class="btn ghost" href="#features">See what it does</a>
           </div>
-          <div class="cta-note">Coming soon to Google Play · 14-day free trial, then US$1.99/mo or US$17.99/yr.</div>
+          <div class="cta-note prelaunch-only">Coming soon to Google Play · 14-day free trial, then US$1.99/mo or US$17.99/yr.</div>
+          <div class="cta-note launch-only">Free on Google Play · 14-day free trial, then US$1.99/mo or US$17.99/yr.</div>
         </div>
         <div class="art">
           <img
@@ -640,12 +686,22 @@
     <!-- Waitlist -->
     <section id="waitlist" class="waitlist">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head prelaunch-only">
           <h2>Be first to try it</h2>
           <p>
             Klaro Ledger is in the final stretch before launch. Join the waitlist
             and we'll email you the moment it's on Google Play.
           </p>
+        </div>
+        <div class="section-head launch-only">
+          <h2>Get Klaro Ledger</h2>
+          <p>Free on Google Play, with a 14-day trial. Want release notes by email? Drop yours below.</p>
+        </div>
+        <div class="launch-only" style="margin: 0 0 22px">
+          <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.klaro.ledger" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 3.5v17a1 1 0 0 0 1.5.87l14-8.5a1 1 0 0 0 0-1.74l-14-8.5A1 1 0 0 0 4 3.5Z"/></svg>
+            <span class="pb-text"><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
         </div>
         <form id="waitlist-form" class="wl-form" novalidate>
           <input
