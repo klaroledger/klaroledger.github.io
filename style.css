@@ -122,3 +122,21 @@ footer {
   color: var(--muted);
   font-size: 13px;
 }
+footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+}
+footer .row a {
+  color: var(--muted);
+  text-decoration: none;
+}
+footer .row a:hover {
+  color: var(--brand-soft);
+}
+footer .row .spacer {
+  margin-left: auto;
+}
