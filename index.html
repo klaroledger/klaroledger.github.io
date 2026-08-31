@@ -122,7 +122,8 @@
       /* Baseline-align the tight (padding-free) logo with "Ledger": an <img>'s
          baseline is its bottom edge, and the logo is cropped so its bottom ~=
          the "Klar" baseline — so both words share a true baseline, no nudge. */
-      .brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
+      .brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; cursor: pointer; }
+      .brand:hover { opacity: 0.82; }
       .wordlogo { height: 23px; display: block; }
       .ledger {
         font-weight: 700;
@@ -424,10 +425,10 @@
     <div class="topbar">
       <div class="container">
         <span class="brandrow">
-          <span class="brand">
+          <a class="brand" href="/" aria-label="Klaro Ledger — home">
             <img class="wordlogo" src="assets/klaro-wordmark.png" alt="Klaro" />
             <span class="ledger">Ledger</span>
-          </span>
+          </a>
           <span class="tag">by Klaro Pte. Ltd.</span>
         </span>
         <span class="spacer"></span>
