@@ -309,7 +309,16 @@
         transition: transform 0.2s ease;
       }
       .faq-item[open] > summary::after { transform: rotate(45deg); }
-      .faq-item > .faq-a { padding: 0 20px 18px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+      .faq-item > .faq-a {
+        padding: 0 20px 18px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+      }
 
       /* Waitlist */
       .waitlist { text-align: center; }
@@ -393,9 +402,9 @@
           <span class="pill">Private by design · Android</span>
           <h1>Your money, on your device. Nowhere else.</h1>
           <p class="sub">
-            Klaro Ledger is a calm, offline-first money tracker — budgets, goals,
-            net worth, investments, and shared spaces for couples and households —
-            with no account, no ads, and no tracking.
+            Klaro Ledger tracks your budgets, goals, net worth, investments, and
+            shared spaces for couples and households — offline-first, with no
+            account, no ads, and no tracking.
           </p>
           <div class="cta-row">
             <a class="btn" href="#waitlist">Join the waitlist</a>
@@ -417,8 +426,8 @@
     <section id="features">
       <div class="container">
         <div class="section-head">
-          <h2>Everything to run your money — nothing to give away</h2>
-          <p>Fast manual entry, clear visuals, and the numbers that actually matter.</p>
+          <h2>Everything you need to run your money</h2>
+          <p>Quick to log, clear to read, and honest about where you stand.</p>
         </div>
         <div class="features">
           <div class="feature">
@@ -447,14 +456,14 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
             </div>
             <h3>Stats &amp; insights</h3>
-            <p>Category breakdowns, a spending calendar, month-pace charts, and a coach that flags what matters.</p>
+            <p>Category breakdowns, a spending calendar, month-pace charts, and a coach that tells you what changed.</p>
           </div>
           <div class="feature">
             <div class="ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
             </div>
             <h3>Multi-currency</h3>
-            <p>Log in any currency with historical FX, so travel and overseas spending just work.</p>
+            <p>Log in any currency with historical exchange rates — handy for travel and spending abroad.</p>
           </div>
           <div class="feature">
             <div class="ico">
@@ -503,7 +512,7 @@
     <section class="privacy">
       <div class="container">
         <div class="section-head">
-          <h2>Private by design, not by promise</h2>
+          <h2>Private by design</h2>
           <p>Most finance apps are a front end for your data. Klaro isn't.</p>
         </div>
         <div class="points">
@@ -544,7 +553,7 @@
             <summary>Does it work offline?</summary>
             <p class="faq-a">
               Yes — Klaro is offline-first. Adding transactions, budgets, goals, and every
-              chart run entirely on your phone, with no internet connection and no server
+              chart all run on your phone, with no internet connection and no server
               round-trip. It's just as fast on a plane or with no signal.
             </p>
           </details>
@@ -563,8 +572,8 @@
               convenient, but it means handing over your banking credentials and, usually,
               your spending data to their servers. Manual tracking — how Klaro works — means
               you log each expense yourself: a little more effort, but nothing about your
-              accounts is shared, and writing it down keeps you closer to where your money
-              actually goes.
+              accounts is shared, and logging each one keeps you close to where your money
+              is going.
             </p>
           </details>
           <details class="faq-item">
@@ -572,8 +581,8 @@
             <p class="faq-a">
               A simple subscription — US$1.99/month or US$17.99/year, with a 14-day free
               trial. That's the whole model: no ads, no trackers, and nothing about your
-              spending is ever sold or shared. You're the customer, not the product —
-              which is exactly why your data can stay on your device.
+              spending is ever sold or shared. You pay for the app, so your data doesn't
+              have to — which is why it can stay on your device.
             </p>
           </details>
         </div>
@@ -597,7 +606,7 @@
             "name": "Does it work offline?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes — Klaro is offline-first. Adding transactions, budgets, goals, and every chart run entirely on your phone, with no internet connection and no server round-trip. It's just as fast on a plane or with no signal."
+              "text": "Yes — Klaro is offline-first. Adding transactions, budgets, goals, and every chart all run on your phone, with no internet connection and no server round-trip. It's just as fast on a plane or with no signal."
             }
           },
           {
@@ -613,7 +622,7 @@
             "name": "What's the difference between manual and automatic expense tracking?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Automatic apps link to your bank and import transactions for you. That's convenient, but it means handing over your banking credentials and, usually, your spending data to their servers. Manual tracking — how Klaro works — means you log each expense yourself: a little more effort, but nothing about your accounts is shared, and writing it down keeps you closer to where your money actually goes."
+              "text": "Automatic apps link to your bank and import transactions for you. That's convenient, but it means handing over your banking credentials and, usually, your spending data to their servers. Manual tracking — how Klaro works — means you log each expense yourself: a little more effort, but nothing about your accounts is shared, and logging each one keeps you close to where your money is going."
             }
           },
           {
@@ -621,7 +630,7 @@
             "name": "How does Klaro Ledger make money?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A simple subscription — US$1.99/month or US$17.99/year, with a 14-day free trial. That's the whole model: no ads, no trackers, and nothing about your spending is ever sold or shared. You're the customer, not the product — which is exactly why your data can stay on your device."
+              "text": "A simple subscription — US$1.99/month or US$17.99/year, with a 14-day free trial. That's the whole model: no ads, no trackers, and nothing about your spending is ever sold or shared. You pay for the app, so your data doesn't have to — which is why it can stay on your device."
             }
           }
         ]
