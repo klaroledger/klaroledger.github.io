@@ -82,6 +82,16 @@ h2 {
 }
 p { margin: 0 0 14px; }
 
+/* Justify the longer body copy on the content pages (matches the marketing
+   FAQ); hyphenate so justified lines don't open up big gaps. Single-line bits
+   like .updated are unaffected — justify only acts on lines that wrap. */
+.wrap p,
+.wrap li {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 a { color: var(--brand-soft); }
 
 .lead {
