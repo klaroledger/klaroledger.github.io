@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://klaroledger.github.io/sitemap.xml
+Sitemap: https://klaroledger.app/sitemap.xml
