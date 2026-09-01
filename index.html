@@ -288,6 +288,64 @@
       .feature h3 { font-size: 16px; margin: 12px 0 6px; letter-spacing: -0.01em; }
       .feature p { color: var(--muted); font-size: 14.5px; margin: 0; }
 
+      /* How-it-works steps */
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .step {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px;
+      }
+      .step .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--brand) 14%, transparent);
+        color: var(--brand);
+        font-weight: 800;
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+      .step h3 { font-size: 16px; margin: 0 0 6px; letter-spacing: -0.01em; }
+      .step p { color: var(--muted); font-size: 14.5px; margin: 0; }
+
+      /* Pricing */
+      .price-wrap { display: flex; justify-content: center; }
+      .price-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 28px 26px;
+        text-align: center;
+        max-width: 420px;
+        width: 100%;
+      }
+      .price-card.featured {
+        border-color: color-mix(in srgb, var(--brand) 45%, transparent);
+        box-shadow: 0 18px 40px -24px rgba(76, 29, 149, 0.5);
+      }
+      .price-card h3 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+      .price-amt {
+        font-size: 40px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: var(--fg);
+      }
+      .price-amt span { font-size: 16px; font-weight: 600; color: var(--muted); }
+      .price-sub { color: var(--brand-soft); font-size: 13.5px; font-weight: 600; margin: 6px 0 0; }
+      .price-note { color: var(--muted); font-size: 14.5px; margin: 16px 0 0; line-height: 1.55; }
+      .price-foot { text-align: center; color: var(--muted); font-size: 14px; margin: 20px 0 0; }
+
       /* Privacy band */
       .privacy {
         background: linear-gradient(135deg, var(--brand), var(--brand-deep));
@@ -401,7 +459,7 @@
         .hero .grid { grid-template-columns: 1fr; gap: 32px; }
         .art { order: -1; }
         h1 { font-size: 34px; }
-        .features, .privacy .points { grid-template-columns: 1fr; }
+        .features, .privacy .points, .steps { grid-template-columns: 1fr; }
         .shots { grid-template-columns: repeat(2, 1fr); }
         .topbar .tag { display: none; }
       }
@@ -494,6 +552,33 @@
       </div>
     </section>
 
+    <!-- How it works — the effortless story (auto-capture → the answer → shared) -->
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How Klaro works for you</h2>
+          <p>Less financial busywork — more knowing where you stand.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="num">1</span>
+            <h3>It logs itself</h3>
+            <p>Switch on capture and Klaro reads your bank's payment alerts on your device, turning them into transactions for you — no bank login, nothing uploaded. Or add one yourself in a couple of taps.</p>
+          </div>
+          <div class="step">
+            <span class="num">2</span>
+            <h3>You get an answer</h3>
+            <p>Open Klaro and the first thing you see is how you're doing this month, in plain English — a straight answer, not a wall of charts to decode.</p>
+          </div>
+          <div class="step">
+            <span class="num">3</span>
+            <h3>Together, if you want</h3>
+            <p>Share a private, end-to-end-encrypted space with your partner or household — and one subscription covers everyone in it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features (what it does — powerful, but made to feel effortless) -->
     <section id="features">
       <div class="container">
@@ -577,6 +662,29 @@
             <figcaption>Share money, stay private</figcaption>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <!-- Pricing — one simple price, everything included -->
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>One price. Everything included.</h2>
+          <p>No tiers, no feature paywalls — the whole app, one subscription.</p>
+        </div>
+        <div class="price-wrap">
+          <div class="price-card featured">
+            <h3>Klaro</h3>
+            <p class="price-amt">US$17.99<span> / year</span></p>
+            <p class="price-sub">or US$1.99/month · 14-day free trial, no card to start</p>
+            <p class="price-note">
+              Everything included — budgets, goals, net worth, investments,
+              shared spaces and auto-capture. One subscription covers your whole
+              shared space.
+            </p>
+          </div>
+        </div>
+        <p class="price-foot">No ads. No selling your data. No feature tiers.</p>
       </div>
     </section>
 
