@@ -150,3 +150,14 @@ footer .row a:hover {
 footer .row .spacer {
   margin-left: auto;
 }
+footer .row .social {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+}
+footer .row .social a { display: inline-flex; }
+footer .row .social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
