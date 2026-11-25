@@ -238,15 +238,16 @@
         details to the app. Cloudflare — hosts our Shared Spaces relay and its
         database, storing end-to-end-encrypted space content plus the
         membership and subscription details described above. Google Play and
-        RevenueCat — process and manage subscription billing status. Expo —
-        delivers app updates, such as bug fixes; when the app checks for one,
-        it sends its version, platform, and a random install ID, and nothing
-        about your data. Frankfurter, CoinGecko, Yahoo Finance, and Parqet —
-        supply reference exchange rates, live prices, and logos, using only a
-        currency code/date or the symbols you track. Sentry — receives
-        anonymous crash and error diagnostics (a stack trace plus device/OS
-        information, and no personal or financial data) unless you turn crash
-        reporting off. We use no advertising or tracking SDKs.
+        RevenueCat — process and manage subscription billing status; Google
+        Play also tells the app your age range where age laws require it (see
+        Children). Expo — delivers app updates, such as bug fixes; when the
+        app checks for one, it sends its version, platform, and a random
+        install ID, and nothing about your data. Frankfurter, CoinGecko, Yahoo
+        Finance, and Parqet — supply reference exchange rates, live prices,
+        and logos, using only a currency code/date or the symbols you track.
+        Sentry — receives anonymous crash and error diagnostics (a stack trace
+        plus device/OS information, and no personal or financial data) unless
+        you turn crash reporting off. We use no advertising or tracking SDKs.
       </p>
 
       <h2>International data transfers</h2>
@@ -305,7 +306,15 @@
         EEA/UK), and we do not knowingly collect personal data from them. The
         optional sign-in and Shared Spaces require a Google account, which
         Google restricts by age. If you believe a child has provided data
-        through these features, contact us and we will help.
+        through these features, contact us and we will help. Where the law
+        requires apps to check users' ages through the app store (currently
+        some US states, and Brazil from 2027), the app asks Google Play for
+        your age range and, for an account a parent supervises, whether the
+        parent has approved the app. It uses the answer only to apply those
+        age rules — for example, it won't open on an account Google Play says
+        is under 13 — keeps it in memory only while the app is running, and
+        never stores it or sends it to us or anyone else. Everywhere else, the
+        app doesn't ask.
       </p>
 
       <h2>Changes to this policy</h2>
